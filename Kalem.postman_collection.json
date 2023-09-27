@@ -1,0 +1,403 @@
+{
+	"info": {
+		"_postman_id": "819928f8-0c5e-408c-a4af-eeda9f7be5f2",
+		"name": "Kalem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4179598",
+		"_collection_link": "https://www.postman.com/winter-station-9844/workspace/kalem/collection/4179598-819928f8-0c5e-408c-a4af-eeda9f7be5f2?action=share&source=collection_link&creator=4179598"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"tckn\": \"string\",\r\n  \"birthday\": \"2023-09-25T17:50:47.380Z\",\r\n  \"active\": true,\r\n  \"password\": \"string\",\r\n  \"emailAddress\": \"string\",\r\n  \"roleId\": \"e77d9862-a0c5-4f02-85f0-100a07524aa5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7281/api/User/Create",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"User",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Id\":\"80063F41-6796-4F9D-EC13-08DBBF5D622D\",\r\n  \"firstName\": \"ahmet\",\r\n  \"lastName\": \"yılmaz\",\r\n  \"tckn\": \"string\",\r\n  \"birthday\": \"2023-09-25T17:50:47.380Z\",\r\n\r\n  \"emailAddress\": \"ahmet@gmail.com\",\r\n  \"roleId\": \"e77d9862-a0c5-4f02-85f0-100a07524aa5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7218/api/User/Update",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7218",
+							"path": [
+								"api",
+								"User",
+								"Update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"tckn\": \"string\",\r\n  \"birthday\": \"2023-09-25T17:50:47.380Z\",\r\n  \"active\": true,\r\n  \"password\": \"string\",\r\n  \"emailAddress\": \"string\",\r\n  \"roleId\": \"e77d9862-a0c5-4f02-85f0-100a07524aa5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7218/api/User/c6837b59-639c-434c-ec12-08dbbf5d622d",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7218",
+							"path": [
+								"api",
+								"User",
+								"c6837b59-639c-434c-ec12-08dbbf5d622d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \r\n  \"Password\": \"123\",\r\n  \"EmailAddress\": \"dondu@gmail.com\"\r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7218/api/User/Login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7218",
+							"path": [
+								"api",
+								"User",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7218/api/User/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7218",
+							"path": [
+								"api",
+								"User",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SalesInvoice",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"UserId\": \"D915821B-F742-46F7-A828-08DBBDF16047\",\r\n\r\n    \"ProductAmounts\":[\r\n    { \"productId\":\"6E214223-ECB3-4141-DE58-08DBBDFDADF8\", \"amount\":10},\r\n    { \"productId\":\"79EFC83A-B492-4C30-DE59-08DBBDFDADF8\", \"amount\":4},\r\n    { \"productId\":\"F5EBF536-5756-4872-DE5A-08DBBDFDADF8\", \"amount\":2}\r\n    ]\r\n\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7218/api/SalesInvoice/CreateSalesInvoice",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7218",
+							"path": [
+								"api",
+								"SalesInvoice",
+								"CreateSalesInvoice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateSalesInvoice",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"UserId\": \"D915821B-F742-46F7-A828-08DBBDF16047\",\r\n   \"InvoiceNo\":\"32D0A8C2-4C45-4F78-5652-08DBBEE2F3AB\",\r\n    \"ProductAmounts\":[\r\n    { \"ProductId\":\"6E214223-ECB3-4141-DE58-08DBBDFDADF8\", \"Amount\":10},\r\n    { \"ProductId\":\"79EFC83A-B492-4C30-DE59-08DBBDFDADF8\", \"Amount\":4},\r\n    { \"ProductId\":\"F5EBF536-5756-4872-DE5A-08DBBDFDADF8\", \"Amount\":2}\r\n    ]\r\n\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7218/api/SalesInvoice/update",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7218",
+							"path": [
+								"api",
+								"SalesInvoice",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSalesInvoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7281/api/SalesInvoice/GetSalesInvoice/91CFF36E-2E4B-4025-A44F-A878F777F1A4/true",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"SalesInvoice",
+								"GetSalesInvoice",
+								"91CFF36E-2E4B-4025-A44F-A878F777F1A4",
+								"true"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7218/api/SalesInvoice/8C88BB10-1301-4C46-88D3-0E978D71267C",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7218",
+							"path": [
+								"api",
+								"SalesInvoice",
+								"8C88BB10-1301-4C46-88D3-0E978D71267C"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "CreateProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Name\":\"Rondo\",\r\n   \"UnitPrice\":40,\r\n   \"BrandId\":\"49cb1e74-eeda-488e-80f7-675a02c94f5c\",\r\n   \"Active\":true,\r\n   \"ExpirationDate\":\"2024-05-02\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7218/api/Product/Create",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7218",
+							"path": [
+								"api",
+								"Product",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"Name\":\"Peynir\",\r\n   \"UnitPrice\":200,\r\n   \"BrandId\":\"9dcb3db9-40f8-49e7-92d4-ecf44a23a40e\",\r\n   \"Active\":true,\r\n   \"ExpirationDate\":\"2024-05-02\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7281/api/Product/54767E13-ACC8-4013-4052-08DBBE6A3DEA",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7281",
+							"path": [
+								"api",
+								"Product",
+								"54767E13-ACC8-4013-4052-08DBBE6A3DEA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProduct",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\":\"6E214223-ECB3-4141-DE58-08DBBDFDADF8\",\r\n   \"Name\":\"Peyni\",\r\n   \"UnitPrice\":2000,\r\n   \"BrandId\":\"9dcb3db9-40f8-49e7-92d4-ecf44a23a40e\",\r\n   \"Active\":true,\r\n   \"ExpirationDate\":\"2024-05-02\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7218/api/Product/Update",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7218",
+							"path": [
+								"api",
+								"Product",
+								"Update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProduct",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImQ5MTU4MjFiLWY3NDItNDZmNy1hODI4LTA4ZGJiZGYxNjA0NyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImRvbmR1QGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6IkTDtm5kw7wiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zdXJuYW1lIjoiw4dvYmFuIiwibmJmIjoxNjk1ODUyMTgxLCJleHAiOjE2OTY3MTYxODF9.yIFF_4c3TfYwp6r5NXF4lFRgUrBj2Z9b-aVrRMRk0tc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7218/api/Product",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7218",
+							"path": [
+								"api",
+								"Product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
