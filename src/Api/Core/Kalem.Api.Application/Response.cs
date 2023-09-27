@@ -15,7 +15,8 @@ namespace Kalem.Api.Application
 
 
         [JsonIgnore]
-        public int StatusCode { get; set; } 
+        public int StatusCode { get; set; } //serialize edilince serliaze edilmeeycek client bunları görmeyecek 
+
         [JsonIgnore]
         public bool IsSuccessful { get; set; }
         public List<string> Errors { get; set; }
@@ -31,7 +32,8 @@ namespace Kalem.Api.Application
         {
             return new Response<T> { Data = default(T), StatusCode = statusCode, IsSuccessful = true };
 
-        }
+        }//basarılı ama data dönmeyebilir
+
         public static Response<T> Fail(List<string> errors, int statusCode)
         {
             return new Response<T>
