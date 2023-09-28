@@ -30,11 +30,47 @@ namespace Kalem.Api.Application.Features.Commands.SalesInvoice.Update
 
                 var dbSalesInvoiceItem = dbSalesInvoiceItems.Where(x => x.SalesInvoiceId == dbsalesInvoice.Id);
 
-                var productIds = dbSalesInvoiceItem.Select(x => x.ProductId).ToList();//db de olan productlar 
+                var productIds = dbSalesInvoiceItem.Select(x => x.ProductId).ToList();
+
+
+
+                var listDelete = new List<ProductAmount>();
+                var listAdd = new List<ProductAmount>();
 
                 var addProducts = request.ProductAmounts.Where(x => !productIds.Contains(x.ProductId)).ToList();
-                var deleteProducst = productIds.Where(x => !request.ProductAmounts.Select(x => x.ProductId).Contains(x));
+                var addProductsIds = addProducts.Select(x => x.ProductId).ToList();
 
+
+                foreach (var item in request.ProductAmounts.Where(x => !addProductsIds.Contains(x.ProductId)))
+                {
+                    var amountIndb = _salesInvoiceItemRepository.AsQueryable().Where(x => x.ProductId == item.ProductId && x.SalesInvoiceId == dbsalesInvoice.Id).FirstOrDefault().Amount;
+
+                    if (item.Amount != amountIndb)
+                    {
+                        listDelete.Add(new ProductAmount { ProductId = item.ProductId, Amount = item.Amount });
+                        listAdd.Add(new ProductAmount { ProductId = item.ProductId, Amount = item.Amount });
+
+                    }
+
+
+                }
+
+                addProducts.AddRange(listAdd);
+
+                var deleteProducst = productIds.Where(x => !request.ProductAmounts.Select(x => x.ProductId).Contains(x)).ToList();
+
+                deleteProducst.AddRange(listDelete.Select(x => x.ProductId));
+
+                if (deleteProducst != null)
+                {
+                    foreach (var item in deleteProducst)
+                    {
+                        var salesItem = dbSalesInvoiceItems.Find(x => x.ProductId == item && x.SalesInvoiceId == dbsalesInvoice.Id);
+
+                        await _salesInvoiceItemRepository.DeleteAsync(salesItem);
+
+                    }
+                }
                 foreach (var item in addProducts)
                 {
                     var productPreis = _productRepository.GetByIdAsync(item.ProductId).Result.UnitPrice;
@@ -49,16 +85,7 @@ namespace Kalem.Api.Application.Features.Commands.SalesInvoice.Update
 
                     });
                 }
-                if (deleteProducst != null)
-                {
-                    foreach (var item in deleteProducst)
-                    {
-                        var salesItem = dbSalesInvoiceItems.Find(x => x.ProductId == item);
 
-                        await _salesInvoiceItemRepository.DeleteAsync(salesItem);
-
-                    }
-                }
 
 
                 await transaction.CommitAsync();

@@ -36,14 +36,14 @@ namespace Kalem.Api.WebApi.Controllers
         }
 
 
-        //[HttpPut]
-        //[Route("Update")]
-        //public async Task<IActionResult> UpdateSalesInvoice([FromBody] UpdateSalesInvoiceCommand command)
-        //{
-        //    var result = await mediator.Send(command);
+        [HttpPut]
+        [Route("Update")]
+        public async Task<IActionResult> UpdateSalesInvoice([FromBody] UpdateSalesInvoiceCommand command)
+        {
+            var result = await mediator.Send(command);
 
-        //    return Ok(result);
-        //}
+            return Ok(result);
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSalesInvoice(Guid id)

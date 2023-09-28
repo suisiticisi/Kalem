@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Kalem.Api.Application.Features.Commands.SalesInvoice.Update;
+using MediatR;
 
 namespace Kalem.Api.Application.Features.Commands.SalesInvoice.Create
 {
@@ -16,10 +17,10 @@ namespace Kalem.Api.Application.Features.Commands.SalesInvoice.Create
 
     }
 
-    public class ProductAmount
-    {
-        public Guid ProductId { get; set; }
-        public decimal Amount { get; set; }
+    //public class ProductAmount
+    //{
+    //    public Guid ProductId { get; set; }
+    //    public decimal Amount { get; set; }
 
-    }
+    //}
 }
